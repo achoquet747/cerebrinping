@@ -1,5 +1,7 @@
 package com.polarapss.cerebrinping.movie.model.entity;
 
+import com.polarapss.cerebrinping.MovieStatus.model.entity.MovieStatus;
+import com.polarapss.cerebrinping.MovieType.model.entity.MovieType;
 import com.polarapss.cerebrinping.StreamingPlatform.model.entity.StreamingPlatform;
 import com.polarapss.cerebrinping.director.model.entity.Director;
 import jakarta.persistence.*;
@@ -54,6 +56,22 @@ public class Movie {
     )
     private List<StreamingPlatform> streamingPlatforms;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "movie_status_id",
+            nullable = false,
+            foreignKey = @ForeignKey(name = "FK_MovieStatus_Movie")
+    )
+    private MovieStatus movieStatus;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "movie_type_id",
+            nullable = false,
+            foreignKey = @ForeignKey(name = "FK_MovieType_Movie")
+    )
+    private MovieType movieType;
 
+    @Column(name = "imageURL")
+    private String imageURL;
 }
