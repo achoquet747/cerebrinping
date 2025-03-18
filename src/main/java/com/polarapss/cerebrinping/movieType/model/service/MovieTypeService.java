@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @AllArgsConstructor
@@ -37,5 +38,29 @@ public class MovieTypeService {
         movieTypeDto.setId(savedMovieType.getId());
 
         return new ResponseEntity<>(movieTypeDto, HttpStatus.CREATED);
+    }
+
+    public ResponseEntity<Void> deleteMovieType(Long movieTypeId) {
+        if(movieTypeRepository.existsById(movieTypeId)){
+            movieTypeRepository.deleteById(movieTypeId);
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    public ResponseEntity<MovieTypeDTO> updateMovieType(Long movieTypeId, MovieTypeDTO movieTypeDTO) {
+        Optional<MovieType> movieType = movieTypeRepository.findById(movieTypeId);
+        if(movieType.isPresent()){
+            movieType.get().setType(movieTypeDTO.getType());
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        MovieType savedMovieType = movieTypeRepository.save(movieType.get());
+        movieTypeDTO.setId(savedMovieType.getId());
+
+        return new ResponseEntity<>(movieTypeDTO, HttpStatus.OK);
     }
 }

@@ -32,4 +32,14 @@ public class MovieTypeController {
     public ResponseEntity<MovieType> getMovieTypeById(@PathVariable Long id){
         return movieTypeService.getMovieType(id);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMovieType(@PathVariable Long id){
+        return movieTypeService.deleteMovieType(id);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<MovieTypeDTO> updateMovieType(@PathVariable Long id, @RequestBody MovieTypeDTO movieTypeDTO){
+        return movieTypeService.updateMovieType(id, movieTypeDTO);
+    }
 }
