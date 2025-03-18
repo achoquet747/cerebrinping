@@ -1,4 +1,4 @@
-package com.polarapss.cerebrinping.movieType.model.service;
+package com.polarapss.cerebrinping.movieType.service;
 
 import com.polarapss.cerebrinping.movieType.dto.MovieTypeDTO;
 import com.polarapss.cerebrinping.movieType.model.entity.MovieType;
