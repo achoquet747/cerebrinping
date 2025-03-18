@@ -1,4 +1,4 @@
-package com.polarapss.cerebrinping.MovieType.model.entity;
+package com.polarapss.cerebrinping.streamingPlatform.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.polarapss.cerebrinping.movie.model.entity.Movie;
@@ -13,16 +13,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class MovieType {
+public class StreamingPlatform {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "movie_type_id")
+    @Column(name = "streaming_id")
     private Long id;
 
-    private String type;
+    private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "movieType", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "streamingPlatforms")
     private List<Movie> movies;
 }

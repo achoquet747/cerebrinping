@@ -1,4 +1,4 @@
-package com.polarapss.cerebrinping.MovieStatus.model.entity;
+package com.polarapss.cerebrinping.movieStatus.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.polarapss.cerebrinping.movie.model.entity.Movie;

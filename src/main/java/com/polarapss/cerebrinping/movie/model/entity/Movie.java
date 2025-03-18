@@ -1,8 +1,8 @@
 package com.polarapss.cerebrinping.movie.model.entity;
 
-import com.polarapss.cerebrinping.MovieStatus.model.entity.MovieStatus;
-import com.polarapss.cerebrinping.MovieType.model.entity.MovieType;
-import com.polarapss.cerebrinping.StreamingPlatform.model.entity.StreamingPlatform;
+import com.polarapss.cerebrinping.movieStatus.model.entity.MovieStatus;
+import com.polarapss.cerebrinping.movieType.model.entity.MovieType;
+import com.polarapss.cerebrinping.streamingPlatform.model.entity.StreamingPlatform;
 import com.polarapss.cerebrinping.director.model.entity.Director;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
